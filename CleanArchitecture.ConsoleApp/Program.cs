@@ -9,7 +9,7 @@ StreamerDbContext dbContext = new();
 //await QueryFilter();
 //await QueryMethod();
 //await QueryLinq();
-await TrackingAndNotTracking();
+//await TrackingAndNotTracking();
 
 Console.WriteLine("Presione cualquier tecla para terminar el programa");
 Console.ReadKey();
