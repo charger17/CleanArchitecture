@@ -21,14 +21,19 @@ namespace CleanArchitecture.Data
             modelBuilder.Entity<Video>().HasMany(p => p.Actores)
                 .WithMany(t => t.Videos)
                 .UsingEntity<VideoActor>(
-                    pt => pt.HasKey(e => new {e.ActorId, e.VideoId})
+                    pt => pt.HasKey(e => new { e.ActorId, e.VideoId })
                 );
 
             base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Streamer>? Streamers { get; set; }
+
         public DbSet<Video>? Videos { get; set; }
+
+        public DbSet<Actor>? Actores { get; set; }
+
+        public DbSet<Director>? Directores { get; set; }
 
     }
 }
