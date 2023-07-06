@@ -6,10 +6,26 @@ StreamerDbContext dbContext = new();
 
 //await AddNewRecords();
 //QueryStreaming();
-await QueryFilter();
+//await QueryFilter();
+await QueryMethod();
 
 Console.WriteLine("Presione cualquier tecla para terminar el programa");
 Console.ReadKey();
+
+async Task QueryMethod()
+{
+    var streamer = dbContext!.Streamers!;
+
+    var firstAsync = await streamer.Where(y => y.Nombre.Contains("a")).FirstAsync();
+    var firstorDefaultAsync = await streamer!.Where(y => y.Nombre.Contains("a")).FirstOrDefaultAsync();
+    var firstOrDefualt_v2 = await streamer.FirstOrDefaultAsync(y => y.Nombre.Contains("a"));
+
+    var singleAsync = await streamer.Where(y => y.Id == 1).SingleAsync();
+    var singleOrDefaultAsync = await streamer.Where(y => y.Id == 1).SingleOrDefaultAsync();
+
+    var resultado = await streamer.FindAsync(1);
+
+}
 
 
 async Task QueryFilter()
@@ -32,8 +48,6 @@ async Task QueryFilter()
         Console.WriteLine($"{streamer.Id} - {streamer.Nombre}");
     }
 }
-
-
 
 void QueryStreaming()
 {
