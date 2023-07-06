@@ -8,11 +8,23 @@ StreamerDbContext dbContext = new();
 //QueryStreaming();
 //await QueryFilter();
 //await QueryMethod();
-await QueryLinq();
+//await QueryLinq();
+await TrackingAndNotTracking();
 
 Console.WriteLine("Presione cualquier tecla para terminar el programa");
 Console.ReadKey();
+async Task TrackingAndNotTracking()
+{
+    //La busqueda con tracking mantiene el objeto en memoria
+    var streamerWithTracking = await dbContext!.Streamers!.SingleOrDefaultAsync(x => x.Id.Equals(1));
+    //La busqueda sin tracking elimina el objeto después de obtener el resultado
+    var streamerWithNoTracking = await dbContext!.Streamers!.AsNoTracking().SingleOrDefaultAsync(x => x.Id.Equals(2));
 
+    streamerWithTracking.Nombre = "Netflix Super";
+    streamerWithNoTracking.Nombre = "Amazon Plus";
+
+    await dbContext.SaveChangesAsync();
+}
 
 async Task QueryLinq()
 {
