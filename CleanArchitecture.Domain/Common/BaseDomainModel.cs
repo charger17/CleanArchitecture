@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
 
-        public DateTime? DateCreate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
         public string? CreatedBy { get; set; }
 
