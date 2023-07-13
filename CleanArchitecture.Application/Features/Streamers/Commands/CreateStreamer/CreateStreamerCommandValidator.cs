@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace CleanArchitecture.Application.Features.Streamers.Commands
+namespace CleanArchitecture.Application.Features.Streamers.Commands.CreateStreamer
 {
-    public class StreamerCommandValidator : AbstractValidator<StreamerCommand>
+    public class CreateStreamerCommandValidator : AbstractValidator<CreateStreamerCommand>
     {
-        public StreamerCommandValidator()
+        public CreateStreamerCommandValidator()
         {
             RuleFor(p => p.Nombre).NotEmpty()
                 .WithMessage("{Nombre} No puede estar en blanco").
