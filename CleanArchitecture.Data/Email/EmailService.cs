@@ -4,11 +4,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CleanArchitecture.Infraestructure.Email
 {
@@ -20,6 +15,7 @@ namespace CleanArchitecture.Infraestructure.Email
         public EmailService(IOptions< EmailSettings> emailSettings, ILogger<EmailService> logger)
         {
             _emailSettings = emailSettings.Value;
+            _emailSettings.Apikey = "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";
             _logger = logger;
         }
 
