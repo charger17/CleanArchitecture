@@ -20,7 +20,7 @@ namespace CleanArchitecture.Identity.Configurations
                     Id = "c3534849-ff15-4de8-a12b-c0e64179ccf3",
                     Name = "Operator",
                     NormalizedName = "OPERATOR"
-                },
+                }
             );
         }
     }
