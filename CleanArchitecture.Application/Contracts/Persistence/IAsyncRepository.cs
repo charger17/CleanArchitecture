@@ -27,6 +27,10 @@ namespace CleanArchitecture.Application.Contracts.Persistence
 
         Task DeleteAsync(T Entity);
 
+        void AddEntity(T Entity);
 
+        void UpdateEntity(T Entity);
+
+        void DeleteEntity(T Entity);
     }
 }
