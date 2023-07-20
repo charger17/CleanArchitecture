@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoFixture;
+using CleanArchitecture.Application.Contracts.Persistence;
+using CleanArchitecture.Domain;
+using Moq;
 
 namespace CleanArchitecture.Application.UnitTests.Mocks
 {
-    public class MockVideoRepository
+    public static class MockVideoRepository
     {
+        public static Mock<IVideoRepository> GetVideoRespository()
+        {
+            var fixture = new Fixture();
+            var videos = fixture.CreateMany<Video>().ToList();
+
+            var mockRepository = new Mock<IVideoRepository>();
+            mockRepository.Setup(r => r.GetAllAsync()).ReturnsAsync(videos);
+            return mockRepository;
+        }
     }
 }

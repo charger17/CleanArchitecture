@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CleanArchitecture.Application.UnitTests.Features.Video.Queries
 {
-    internal class GetVideosListQueryHandlerXUnitTests
+    public class GetVideosListQueryHandlerXUnitTests
     {
     }
 }
