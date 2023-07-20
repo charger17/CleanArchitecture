@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CleanArchitecture.Domain.Common;
 
 namespace CleanArchitecture.Application.Contracts.Persistence
 {
-    internal class IUnitOfWork
+    public interface IUnitOfWork :IDisposable
     {
+        IAsyncRepository<TEntity> Repository<TEntity>() where TEntity : BaseDomainModel;
+
+        Task<int> Complete();
     }
 }
